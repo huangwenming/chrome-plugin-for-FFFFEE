@@ -17,10 +17,12 @@ var initQrcode = function(url) {
 	var pre = {
 		'web': url,
 		'map': 'baidumap://map/cost_share?url=' + url,
-		'lbc': 'baidumap://map/component?comName=lbc&target=webshell_login_page&param=' +
-		encodeURIComponent(JSON.stringify({'url':url})),
+        'carowner': 'baidumap://map/component?comName=carowner&target=open_web_page&popRoot=no&param=' +
+        JSON.stringify({'url':url, 'from':"blah", "showShare":"0"}),
 		'nuo': 'bainuo://component?url=' + encodeURIComponent(url),
-		'nuoweb': 'bainuo://web?url=' + encodeURIComponent(url)
+		'nuoweb': 'bainuo://web?url=' + encodeURIComponent(url),
+        'lbc': 'baidumap://map/component?comName=lbc&target=webshell_login_page&param=' +
+        encodeURIComponent(JSON.stringify({'url':url})),
 	};
 	// 正常浏览器url
 	jQuery('#qrcodeWeb').qrcode({
@@ -30,12 +32,12 @@ var initQrcode = function(url) {
 	// 百度地图url 
 	jQuery('#qrcodeMap').qrcode({
 		text: pre.map
-	});	
+	});
 
-	// lbc壳浏览器url 
-	jQuery('#qrcodeLbc').qrcode({
-		text: pre.lbc
-	});	
+    // 百度地图车主壳浏览器url
+    jQuery('#qrcodeCarowner').qrcode({
+        text: pre.carowner
+    });
 
 	// 百度糯米浏览器组件版本
 	jQuery('#qrcodeNuo').qrcode({
@@ -45,5 +47,10 @@ var initQrcode = function(url) {
 	// 百度糯米浏览器web版本 
 	jQuery('#qrcodeNuoWeb').qrcode({
 		text: pre.nuoweb
-	});	
+	});
+
+    // lbc壳浏览器url
+    jQuery('#qrcodeLbc').qrcode({
+        text: pre.lbc
+    });
 }
