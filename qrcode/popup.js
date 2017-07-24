@@ -19,6 +19,7 @@ var initQrcode = function(url) {
 		'map': 'baidumap://map/cost_share?url=' + url,
         'carowner': 'baidumap://map/component?comName=carowner&target=open_web_page&popRoot=no&param=' +
         JSON.stringify({'url':url, 'from':"blah", "showShare":"0"}),
+        'shoubai': 'baiduboxapp://v1/easybrowse/open?url=' + encodeURIComponent(url),
 		'nuo': 'bainuo://component?url=' + encodeURIComponent(url),
 		'nuoweb': 'bainuo://web?url=' + encodeURIComponent(url),
         'lbc': 'baidumap://map/component?comName=lbc&target=webshell_login_page&param=' +
@@ -37,6 +38,11 @@ var initQrcode = function(url) {
     // 百度地图车主壳浏览器url
     jQuery('#qrcodeCarowner').qrcode({
         text: pre.carowner
+    });
+
+    // 手机百度轻浏览url
+    jQuery('#shoubai').qrcode({
+        text: pre.shoubai
     });
 
 	// 百度糯米浏览器组件版本
