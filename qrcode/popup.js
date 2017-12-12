@@ -18,7 +18,7 @@ var initQrcode = function(url) {
 		'web': url,
 		'map': 'baidumap://map/cost_share?url=' + url,
         'carowner': 'baidumap://map/component?comName=carowner&target=open_web_page&popRoot=no&param=' +
-        JSON.stringify({'url':url, 'from':"blah", "showShare":"0"}),
+        encodeURIComponent(JSON.stringify({'url':url, 'from':"chrome-qrcode", "showShare":"0"})),
         'shoubai': 'baiduboxapp://v1/easybrowse/open?url=' + encodeURIComponent(url),
 		'nuo': 'bainuo://component?url=' + encodeURIComponent(url),
 		'nuoweb': 'bainuo://web?url=' + encodeURIComponent(url),
